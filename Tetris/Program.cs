@@ -8,8 +8,8 @@ namespace TetrisNF.Tetris
         private static Figure _currentFigure;
         static void Main()
         {
-            Field.ScreenWidth=25;
-            Field.ScreenHeight=40;
+            Field.ScreenWidth=Configuration.FIELD_WIDTH;
+            Field.ScreenHeight=Configuration.FIELD_HEIGHT;
             _currentFigure=Figure.CreateNewFigure();
             _currentFigure.Draw();
             GraphicsWindow.KeyDown += GraphicsWindow_KeyDown;
@@ -36,6 +36,8 @@ namespace TetrisNF.Tetris
                     {
                         _currentFigure= Figure.CreateNewFigure();
                         Field.FigureIsDropped=false;
+                        Field.CheckFieldToDrop();
+                        DriverProvider.Drawer.RedarawField();
                     }
                     break;
             }

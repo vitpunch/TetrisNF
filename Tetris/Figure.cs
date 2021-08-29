@@ -46,6 +46,7 @@ namespace TetrisNF.Tetris
                         StartPoint.Y--;
                         Field.FigureToField(this);
                         Field.FigureIsDropped = true;
+                        return;
                     }
                     break;
             }
